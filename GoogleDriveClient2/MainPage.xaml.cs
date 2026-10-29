@@ -5,6 +5,7 @@ namespace GoogleDriveClient2
 {
     public partial class MainPage : ContentPage
     {
+        private readonly DriveUploader _uploader = new();
         private List<FileResult> wybranePliki = new();
         private List<string> wybraneFoldery = new();
         List<string> Adresy = new List<string>();
@@ -74,29 +75,68 @@ namespace GoogleDriveClient2
             }
         }
 
+        /*
+    async private void DodajDoDysku(object sender, EventArgs e)
+    {
+        if (!wybranePliki.Any() && !wybraneFoldery.Any())
+        {
+            await DisplayAlert("Błąd", "Najpierw wybierz plik lub folder", "ok");
+            return;
+        }
+
+        foreach (var plik in wybranePliki)
+        {
+            Adresy.Add(plik.FullPath);
+            Nazwy.Add(plik.FileName);
+        }
+
+        foreach (var folder in wybraneFoldery)
+        {
+            Adresy.Add(folder);
+            Nazwy.Add("[Folder] " + System.IO.Path.GetFileName(folder.TrimEnd('\\', '/')));
+        }
+
+        wybranePliki.Clear();
+        wybraneFoldery.Clear();
+        AktualizujSciezke();
+
+    }
+        */
         async private void DodajDoDysku(object sender, EventArgs e)
         {
-            if (!wybranePliki.Any() && !wybraneFoldery.Any())
+            if (!wybranePliki.Any())
             {
-                await DisplayAlert("Błąd", "Najpierw wybierz plik lub folder", "ok");
+                await DisplayAlert("Błąd", "Najpierw wybierz plik (foldery nie są jeszcze obsługiwane)", "ok");
                 return;
             }
 
-            foreach (var plik in wybranePliki)
-            {
-                Adresy.Add(plik.FullPath);
-                Nazwy.Add(plik.FileName);
-            }
+            var przycisk = (Button)sender;
+            przycisk.IsEnabled = false;
 
-            foreach (var folder in wybraneFoldery)
+            try
             {
-                Adresy.Add(folder);
-                Nazwy.Add("[Folder] " + System.IO.Path.GetFileName(folder.TrimEnd('\\', '/')));
-            }
+                foreach (var plik in wybranePliki.ToList())
+                {
+                    try
+                    {
+                        var id = await _uploader.UploadAsync(plik.FullPath);
 
-            wybranePliki.Clear();
-            wybraneFoldery.Clear();
-            AktualizujSciezke();
+                        Adresy.Add(plik.FullPath);
+                        Nazwy.Add(plik.FileName);
+                        wybranePliki.Remove(plik);
+                    }
+                    catch (Exception ex)
+                    {
+                        await DisplayAlert("Błąd", $"{plik.FileName}: {ex.Message}", "ok");
+                    }
+                }
+
+                AktualizujSciezke();
+            }
+            finally
+            {
+                przycisk.IsEnabled = true;
+            }
         }
     }
 }

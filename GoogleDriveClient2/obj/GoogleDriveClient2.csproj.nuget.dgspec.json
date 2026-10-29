@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Student\\Documents\\Jakub Bijata\\GoogleDriveClient2\\GoogleDriveClient2\\GoogleDriveClient2.csproj": {}
+    "C:\\Users\\jbija\\Desktop\\GoogleDriveClient\\GoogleDriveClient2\\GoogleDriveClient2\\GoogleDriveClient2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Student\\Documents\\Jakub Bijata\\GoogleDriveClient2\\GoogleDriveClient2\\GoogleDriveClient2.csproj": {
+    "C:\\Users\\jbija\\Desktop\\GoogleDriveClient\\GoogleDriveClient2\\GoogleDriveClient2\\GoogleDriveClient2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Student\\Documents\\Jakub Bijata\\GoogleDriveClient2\\GoogleDriveClient2\\GoogleDriveClient2.csproj",
+        "projectUniqueName": "C:\\Users\\jbija\\Desktop\\GoogleDriveClient\\GoogleDriveClient2\\GoogleDriveClient2\\GoogleDriveClient2.csproj",
         "projectName": "GoogleDriveClient2",
-        "projectPath": "C:\\Users\\Student\\Documents\\Jakub Bijata\\GoogleDriveClient2\\GoogleDriveClient2\\GoogleDriveClient2.csproj",
-        "packagesPath": "C:\\Users\\Student\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Student\\Documents\\Jakub Bijata\\GoogleDriveClient2\\GoogleDriveClient2\\obj\\",
+        "projectPath": "C:\\Users\\jbija\\Desktop\\GoogleDriveClient\\GoogleDriveClient2\\GoogleDriveClient2\\GoogleDriveClient2.csproj",
+        "packagesPath": "C:\\Users\\jbija\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jbija\\Desktop\\GoogleDriveClient\\GoogleDriveClient2\\GoogleDriveClient2\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Student\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jbija\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -31,7 +31,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net9.0-windows10.0.19041": {
+          "net9.0-windows10.0.19041.0": {
+            "framework": "net9.0-windows10.0.19041",
             "targetAlias": "net9.0-windows10.0.19041.0",
             "projectReferences": {}
           }
@@ -46,19 +47,28 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "10.0.400"
       },
       "frameworks": {
-        "net9.0-windows10.0.19041": {
+        "net9.0-windows10.0.19041.0": {
+          "framework": "net9.0-windows10.0.19041",
           "targetAlias": "net9.0-windows10.0.19041.0",
           "dependencies": {
+            "DotNetEnv": {
+              "target": "Package",
+              "version": "[3.2.0, )"
+            },
+            "Google.Apis.Drive.v3": {
+              "target": "Package",
+              "version": "[1.77.0.4301, )"
+            },
             "Microsoft.Extensions.Logging.Debug": {
               "target": "Package",
               "version": "[9.0.8, )"
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[9.0.111, )"
+              "version": "[9.0.120, )"
             }
           },
           "imports": [
@@ -74,8 +84,24 @@
           "warn": true,
           "downloadDependencies": [
             {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[9.0.20, 9.0.20]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[9.0.20, 9.0.20]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[9.0.20, 9.0.20]"
+            },
+            {
               "name": "Microsoft.Windows.SDK.NET.Ref",
               "version": "[10.0.19041.57, 10.0.19041.57]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[9.0.20, 9.0.20]"
             }
           ],
           "frameworkReferences": {
@@ -86,7 +112,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.313\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
