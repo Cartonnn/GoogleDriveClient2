@@ -43,14 +43,18 @@ namespace GoogleDriveClient2
             return _service;
         }
 
-        public async Task<string> UploadAsync(string sciezka)
+        public async Task<string> UploadAsync(string sciezka, string? parentId = null)
         {
             var service = await GetServiceAsync();
 
-            var metadane = new DriveFile { Name = Path.GetFileName(sciezka) };
+            var metadane = new DriveFile { 
+                Name = Path.GetFileName(sciezka.TrimEnd('\\','/')), 
+                Parents = parentId == null ? null : new List<string> {parentId} 
+            };
 
             await using var stream = System.IO.File.OpenRead(sciezka);
             var request = service.Files.Create(metadane, stream, "application/octet-stream");
+            
             request.Fields = "id";
 
             var wynik = await request.UploadAsync();
@@ -58,6 +62,48 @@ namespace GoogleDriveClient2
                 throw wynik.Exception ?? new Exception("Nie udało się wysłać pliku.");
 
             return request.ResponseBody.Id;
+        }
+        private async Task<string> CreateFolder(
+        string folderName,
+        string parentId)
+        {
+            var service = await GetServiceAsync();
+
+            var metadata = new DriveFile
+            {
+                Name = folderName,
+                MimeType = "application/vnd.google-apps.folder",
+                Parents = parentId == null
+                    ? null
+                    : new[] { parentId }
+            };
+
+            var request = service.Files.Create(metadata);
+            request.Fields = "id";
+
+            var folder = await request.ExecuteAsync();
+
+            return folder.Id;
+        }
+        public async Task UploadFolderAsync(string sciezka, string? parentId = null)
+        {
+            var service = await GetServiceAsync();
+
+            var folderId = await CreateFolder(
+                Path.GetFileName(sciezka.TrimEnd('\\','/')),
+                parentId);
+
+            foreach (var file in Directory.GetFiles(sciezka))
+            {
+                await UploadAsync(file, folderId);
+            }
+            foreach (var underFile in Directory.GetDirectories(sciezka))
+            {
+                await UploadFolderAsync(underFile, folderId);
+            }
+
+
+
         }
     }
 }

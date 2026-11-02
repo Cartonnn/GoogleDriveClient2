@@ -1039,3 +1039,14 @@ C:\Users\jbija\Desktop\GoogleDriveClient\GoogleDriveClient2\GoogleDriveClient2\b
 C:\Users\jbija\Desktop\GoogleDriveClient\GoogleDriveClient2\GoogleDriveClient2\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\System.CodeDom.dll
 C:\Users\jbija\Desktop\GoogleDriveClient\GoogleDriveClient2\GoogleDriveClient2\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\System.Management.dll
 C:\Users\jbija\Desktop\GoogleDriveClient\GoogleDriveClient2\GoogleDriveClient2\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\.env
+C:\Users\Student\Documents\Jakub Bijata\GoogleDriveClient2\GoogleDriveClient2\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\.env
+C:\Users\Student\Documents\Jakub Bijata\GoogleDriveClient2\GoogleDriveClient2\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\DotNetEnv.dll
+C:\Users\Student\Documents\Jakub Bijata\GoogleDriveClient2\GoogleDriveClient2\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\Google.Apis.dll
+C:\Users\Student\Documents\Jakub Bijata\GoogleDriveClient2\GoogleDriveClient2\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\Google.Apis.Auth.dll
+C:\Users\Student\Documents\Jakub Bijata\GoogleDriveClient2\GoogleDriveClient2\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\Google.Apis.Core.dll
+C:\Users\Student\Documents\Jakub Bijata\GoogleDriveClient2\GoogleDriveClient2\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\Google.Apis.Drive.v3.dll
+C:\Users\Student\Documents\Jakub Bijata\GoogleDriveClient2\GoogleDriveClient2\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\Newtonsoft.Json.dll
+C:\Users\Student\Documents\Jakub Bijata\GoogleDriveClient2\GoogleDriveClient2\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\Superpower.dll
+C:\Users\Student\Documents\Jakub Bijata\GoogleDriveClient2\GoogleDriveClient2\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\System.CodeDom.dll
+C:\Users\Student\Documents\Jakub Bijata\GoogleDriveClient2\GoogleDriveClient2\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\System.Management.dll
+C:\Users\Student\Documents\Jakub Bijata\GoogleDriveClient2\GoogleDriveClient2\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\GoogleDriveClient2.sourcelink.json

@@ -67,6 +67,7 @@ namespace GoogleDriveClient2
                 if (!wybraneFoldery.Contains(folder.Path))
                     wybraneFoldery.Add(folder.Path);
 
+                
                 AktualizujSciezke();
             }
             catch (Exception ex)
@@ -104,11 +105,7 @@ namespace GoogleDriveClient2
         */
         async private void DodajDoDysku(object sender, EventArgs e)
         {
-            if (!wybranePliki.Any())
-            {
-                await DisplayAlert("Błąd", "Najpierw wybierz plik (foldery nie są jeszcze obsługiwane)", "ok");
-                return;
-            }
+           
 
             var przycisk = (Button)sender;
             przycisk.IsEnabled = false;
@@ -129,6 +126,21 @@ namespace GoogleDriveClient2
                     {
                         await DisplayAlert("Błąd", $"{plik.FileName}: {ex.Message}", "ok");
                     }
+                }
+                foreach (var folder in wybraneFoldery.ToList())
+                {
+                    try
+                    {
+                        await _uploader.UploadFolderAsync(folder);
+                        Adresy.Add(folder);
+                        Nazwy.Add("[Folder] " + Path.GetFileName(folder.TrimEnd('\\', '/')));
+                        wybraneFoldery.Remove(folder);
+                    }
+                    catch (Exception ex)
+                    {
+                        await DisplayAlert("Błąd", $"{folder}: {ex.Message}", "ok");
+                    }
+
                 }
 
                 AktualizujSciezke();
